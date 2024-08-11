@@ -1,1 +1,16 @@
-
+# Exploración de datos (crudos) desde Google Colab (Plotly)
+Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos. 
+# Base de datos: Información de usuario (user_info)
+## Edad (Histograma y Boxplot)
+![01_Histograma_Edad](https://github.com/user-attachments/assets/60025863-a875-41c2-a575-a2e2b4c53626)
+![01_Boxplot_Edad](https://github.com/user-attachments/assets/2cb02042-cca0-4c86-9b7f-5416cd05b557)
+## Último salario mensual (Histograma y Boxplot)
+![02_Histograma_Ultimosalario](https://github.com/user-attachments/assets/0cd19099-e924-4aae-90ab-d3de74be3099)
+![02_Boxplot_Ultimosalario](https://github.com/user-attachments/assets/7fc4bd25-6d9d-4f36-a296-e6b1447109bf)
+## Número de dependientes (Histograma y Boxplot)
+![03_Histograma_NumeroD](https://github.com/user-attachments/assets/98d6db84-88d5-4f4c-9723-b2053bd86a8b)
+![03_Boxplot_NumeroD](https://github.com/user-attachments/assets/bd0c6f65-81c7-4627-b4dd-76b837410101)
+# Base de datos: Préstamos pendientes (loans outstanding)
+## Tipos de préstamo (Discrepancias)
+![04_Grafico_Tipoprestamos](https://github.com/user-attachments/assets/807a8173-ab2b-46e3-a700-c4b33194a0d7)
+## Más de 90 días de retraso
