@@ -1,5 +1,11 @@
-# Desglose de procesos en Google Colab (Jupyter Notebook)
-# Exploración de datos crudos
+# Procesos en Google Colab (Jupyter Notebook)
+# Índice
+
+1. [Exploración de datos](#exploración-de-datos)
+2. [Matriz de confusión](#matriz-de-confusión)
+3. [Regresión logística](#regresión-logística)
+
+# Exploración de datos
 Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí de deja la evidencia de dichos gráficos. El proceso completo se alojan en el Notebook (exploracion_rr).
 ## Base de datos: Información de usuario (user_info)
 ### Edad (Histograma y Boxplot)
@@ -48,5 +54,6 @@ Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y 
 ## Matriz de Correlación
 Se exploró la correlación de las variables del consolidado, que une las 4 bases de datos previamente exploradas.
 ![15_Matrizcorrelacion](https://github.com/user-attachments/assets/d8380db6-d877-418d-8711-dc9d40e65eff)
-
+# Matriz de confusión
+# Regresión logística
 
