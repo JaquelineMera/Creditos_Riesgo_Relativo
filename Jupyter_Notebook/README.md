@@ -1,6 +1,6 @@
 # Desglose de procesos en Google Colab (Jupyter Notebook)
-## Exploración de datos crudos
-Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos. Los procesos se alojan en el Notebook (exploracion_rr).
+# Exploración de datos crudos
+Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí de deja la evidencia de dichos gráficos. El proceso completo se alojan en el Notebook (exploracion_rr).
 ## Base de datos: Información de usuario (user_info)
 ### Edad (Histograma y Boxplot)
 ![01_Histograma_Edad](https://github.com/user-attachments/assets/60025863-a875-41c2-a575-a2e2b4c53626)
@@ -43,3 +43,10 @@ Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y 
 ![13_Histograma_Good](https://github.com/user-attachments/assets/ea8f9517-18d6-4e47-b227-db1e6c772dae)
 ![13_Boxplot_Good](https://github.com/user-attachments/assets/79ba3007-a28a-4594-924a-82c80c72c36c)
 ### Número de dependientes de Buenos pagadores (Histograma y Boxplot)
+![14_Histograma_Goodhijos](https://github.com/user-attachments/assets/88b2a165-4b79-4385-bc71-ddd7972bf4ff)
+![14_Bloxplot_Goodhijos](https://github.com/user-attachments/assets/b1207829-5c37-4105-8fdd-b3477b40b263)
+## Matriz de Correlación
+Se exploró la correlación de las variables del consolidado, que une las 4 bases de datos previamente exploradas.
+![15_Matrizcorrelacion](https://github.com/user-attachments/assets/d8380db6-d877-418d-8711-dc9d40e65eff)
+
+
