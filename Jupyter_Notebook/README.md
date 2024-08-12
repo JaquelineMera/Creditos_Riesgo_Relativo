@@ -52,7 +52,7 @@ Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones 
 ![14_Histograma_Goodhijos](https://github.com/user-attachments/assets/88b2a165-4b79-4385-bc71-ddd7972bf4ff)
 ![14_Bloxplot_Goodhijos](https://github.com/user-attachments/assets/b1207829-5c37-4105-8fdd-b3477b40b263)
 ## Matriz de Correlación
-Se exploró la correlación de las variables del consolidado, que une las 4 bases de datos previamente exploradas.
+Se exploró la correlación de las variables del consolidado. El consolidado une las 4 bases de datos limpias, es decir, ya integran los procesos de preparación (limpieza e imputación de datos).
 ![15_Matrizcorrelacion](https://github.com/user-attachments/assets/d8380db6-d877-418d-8711-dc9d40e65eff)
 # Matriz de confusión
 # Regresión logística
