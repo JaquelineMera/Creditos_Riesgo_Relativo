@@ -63,7 +63,7 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
 + **Identificar duplicados a través de COUNT, GROUP BY, HAVING.**
   + Se han buscado valores duplicados utilizando comandos SQL, para las variables user_id y loan_id, considerando son las únicas variables que no deberían duplicarse a lo largo de los registros. No se encontraron duplicados.
     + Solo la tabla loans_outstanding cuenta con la duplicación de user_id, sin embargo, esto no significa sea un error, solo es la estructura de la tabla, ya que contiene todos los préstamos. 
-+ **Identificar y manejar datos fuera del alcance del análisis a través de EXCEPT, CORR, STDDEV**
++ **Identificar y manejar datos fuera del alcance del análisis a través de EXCEPT, CORR, STDDEV.**
   + Se elimino la variable "sex", puesto que el género no es una variable permitida en los modelos de crédito.
   + Se hicieron correlaciones para observar la relación estadística entre las variables de la base de datos.
     + *Correlación en BigQuery*:
@@ -77,10 +77,10 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
     + La alta correlación entre dos variables indica que se debe elegir solo una variable para el análisis (modelo). La redundancia en la información de cada variable puede ser indicativo de multicolinealidad.
   + *Correlación en Google Colab*:
     + Se creo una matriz de correlación con el consolidado de las 4 tablas. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*. 
-+ **Identificar y manejar datos inconsistentes en variables categóricas a través de SELECT DISTINCT y LOWER**
++ **Identificar y manejar datos inconsistentes en variables categóricas a través de SELECT DISTINCT y LOWER.**
   + Se ha identificado variaciones en las categorías loan_type, a partir de un SELECT DISTINCT.
   + Se han estandarizado la variable loan_type, han quedado homologadas las categorías “real estate” y “others”, utilizando comandos SQL como LOWER.
-+ **Identificar y manejar datos inconsistentes en variables numéricas**
++ **Identificar y manejar datos inconsistentes en variables numéricas.**
   + Identificación de outliers:
     + Inicialmente, se utilizó el Z-score y el Rango intercuartílico (IQR), sin embargo, al observar el número de casos (+) que se identificaron como outliers. Se decidio hacer una inspección visual de la distribución.
     + Inspección visual de outliers, a partir de Google Colab se construyeron histogramas y boxplots para identificar valores fuera de rango. Este paso se hizo para cada variable. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Exploración de datos*. 
@@ -96,10 +96,21 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
     + using_lines_not_secured_personal_assets: Tiene outliers, sin embargo, se quedan por ser información crítica.
     + debt_ratio: Tiene outliers, sin embargo, se quedan por ser información crítica.
 + *Tablas loan outstanding y default:*
-    + No tienen outliers
-
-
-
+    + No tienen outliers.
++ **Crear nuevas variables:**
+  + birth_year: Se cálculo el año de nacimiento a partir de la edad del usuario, a través de EXTRACT y CURRENT_DATE.
+  + generational_group: Se cálculo el grupo generacional a partir de año de nacimiento, a través de CASE y WHEN. Los grupos son: Alpha (>2011), Zeta (1994-2010), Millenials (1981-1993), Generación X (1969-1980), Baby Boomers <1969.
+  + debt_ratio_s: Se segmento esta variable con CASE y WHEN, a partir de, 0 = Sin uso, <0.40 Bajo, >=40 - <= 0.60 Medio, >=60 - <= 1 Alto, >1 Extraordinario. Estás categorías después tomaron un valor númerico de segmento (similar al del cuartil), para esta variable hubo 5 segmentos de 0 al 4.
+  + using_lines_s: Se segmento esta variable con CASE y WHEN, a partir de, 0 = Sin uso, <0.40 Bajo, >=40 - <= 0.60 Medio, >=60 - <= 1 Alto, >1 Extraordinario. Estás categorías después tomaron un valor númerico de segmento (similar al del cuartil), para esta variable hubo 5 segmentos de 0 al 4. 
+  + more_90_days_s: Se segmento esta variable con CASE y WHEN, a partir de, 0 = Sin retrasos, >=1 - <= 5 Bajo, >=5 - <= 10 Moderados, >10 Muchos. Estás categorías después tomaron un valor númerico de segmento (similar al del cuartil), para esta variable hubo 4 segmentos de 0 al 3.
++ **Construir tablas auxiliares:**
+  + Se ha construido una tabla auxiliar del total de préstamos a partir de loans_ outstanding_limpio (sin discrepancias), contiene las variables: total_loans, total_others y total_real_estate.
++ **Unir tablas**
+  + Se ha unificado el consolidado de información de 2 tablas limpias, 1 tabla auxiliar y las 2 tablas de variables nuevas. A partir de la funcionalidad del comando INNER JOIN.
+    + Tablas limpias originales: user_info_flag_l y loans_detail_l.
+    + Tabla auxiliar: total_loan_outstanding.
+    + Tablas nuevas: generaciones y variables nuevas (variables por segmentos). 
+## Análisis exploratorio
 
 ## Enlaces
 ### [Presentación]()
