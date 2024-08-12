@@ -2,8 +2,9 @@
 # Índice
 
 1. [Exploración de datos](#exploración-de-datos)
-2. [Matriz de confusión](#matriz-de-confusión)
-3. [Regresión logística](#regresión-logística)
+2. [Matriz de correlación](#matriz-de-correlación)
+3. [Matriz de confusión](#matriz-de-confusión)
+4. [Regresión logística](#regresión-logística)
 
 # Exploración de datos
 Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí se deja la evidencia de dichos gráficos. El proceso completo se aloja en Jupyter_Notebook (exploracion_rr).
@@ -51,9 +52,11 @@ Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones 
 ### Número de dependientes de Buenos pagadores (Histograma y Boxplot)
 ![14_Histograma_Goodhijos](https://github.com/user-attachments/assets/88b2a165-4b79-4385-bc71-ddd7972bf4ff)
 ![14_Bloxplot_Goodhijos](https://github.com/user-attachments/assets/b1207829-5c37-4105-8fdd-b3477b40b263)
-## Matriz de Correlación
+
+# Matriz de correlación
 Se exploró la correlación de las variables del consolidado. El consolidado une las 4 bases de datos limpias, es decir, ya integran los procesos de preparación (limpieza e imputación de datos).
-![15_Matrizcorrelacion](https://github.com/user-attachments/assets/d8380db6-d877-418d-8711-dc9d40e65eff)
+![15_Matrizcorrelacion](https://github.com/user-attachments/assets/7d51a41a-506d-4d48-b92b-51614b284f44)
+
 # Matriz de confusión
 La matriz de confusión proporciona un medio para evaluar el éxito de un problema de clasificación, dónde se cometen errores (y se vuelve "confuso"). Es decir, visualiza la distribución de los registros en términos de clases reales y clases pronosticadas.
 
