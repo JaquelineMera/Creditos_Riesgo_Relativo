@@ -76,29 +76,28 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
       + stddev_more_90: 4.12136466842672
     + La alta correlación entre dos variables indica que se debe elegir solo una variable para el análisis (modelo). La redundancia en la información de cada variable puede ser indicativo de multicolinealidad.
   + *Correlación en Google Colab*:
-    + Se creo una matriz de correlación con el consolidado de las 4 tablas.
+    + Se creo una matriz de correlación con el consolidado de las 4 tablas. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*. 
 + **Identificar y manejar datos inconsistentes en variables categóricas a través de SELECT DISTINCT y LOWER**
   + Se ha identificado variaciones en las categorías loan_type, a partir de un SELECT DISTINCT.
   + Se han estandarizado la variable loan_type, han quedado homologadas las categorías “real estate” y “others”, utilizando comandos SQL como LOWER.
 + **Identificar y manejar datos inconsistentes en variables numéricas**
-  + Se han identificado y tratado los outliers de la siguiente manera:
+  + Identificación de outliers:
+    + Inicialmente, se utilizó el Z-score y el Rango intercuartílico (IQR), sin embargo, al observar el número de casos (+) que se identificaron como outliers. Se decidio hacer una inspección visual de la distribución.
+    + Inspección visual de outliers, a partir de Google Colab se construyeron histogramas y boxplots para identificar valores fuera de rango. Este paso se hizo para cada variable. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Exploración de datos*. 
+  + Manejo de outliers:
   + *Tabla user_info:*
     + age: Se quitaron los usuarios mayores a 96 años.
     + last_month_salary: Se quitaron los salarios mayores a 400 mil.
-    + number_dependents: Tiene outliers, sin embargo se quedan por la mínima cantidad de casos. 
+    + number_dependents: Tiene outliers, sin embargo, se quedan por la mínima cantidad de casos. 
   + *Tabla loan_detail:*
     + more_90_days_overdue: Se quitaron los valores de 96 y 98 veces de retrasos.
     + number_times_delayed_payment_loan_30_59_days: Se quitaron los valores de 96 y 98 veces de retrasos.
     + number_times_delayed_payment_loan_60_89_days: Se quitaron los valores de 96 y 98 veces de retrasos.
-    + using_lines_not_secured_personal_assets: Tiene outliers, sin embargo se quedan por ser información crítica.
-    + debt_ratio: Tiene outliers, sin embargo se quedan por ser información crítica.
-
-
+    + using_lines_not_secured_personal_assets: Tiene outliers, sin embargo, se quedan por ser información crítica.
+    + debt_ratio: Tiene outliers, sin embargo, se quedan por ser información crítica.
 + *Tablas loan outstanding y default:*
     + No tienen outliers
-   
 
-Number dependents: Tiene outliers, sin embargo se quedan
 
 
 
