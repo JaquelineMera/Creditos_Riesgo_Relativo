@@ -75,8 +75,6 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
       + stddev_number_times_60_89_days: 4.1055147551019706
       + stddev_more_90: 4.12136466842672
     + La alta correlación entre dos variables indica que se debe elegir solo una variable para el análisis (modelo). La redundancia en la información de cada variable puede ser indicativo de multicolinealidad.
-  + *Correlación en Google Colab*:
-    + Se creo una matriz de correlación con el consolidado de las 4 tablas. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*. 
 + **Identificar y manejar datos inconsistentes en variables categóricas a través de SELECT DISTINCT y LOWER.**
   + Se ha identificado variaciones en las categorías loan_type, a partir de un SELECT DISTINCT.
   + Se han estandarizado la variable loan_type, han quedado homologadas las categorías “real estate” y “others”, utilizando comandos SQL como LOWER.
@@ -111,6 +109,17 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
     + Tabla auxiliar: total_loan_outstanding.
     + Tablas nuevas: generaciones y variables nuevas (variables por segmentos). 
 ## Análisis exploratorio
+El análisis exploratorio se llevo a cabo en Looker Studio, se cargo el consolidado desde BigQuery. 
++ Agrupar datos según variables categóricas a través de tablas. 
++ Visualizar las variables categóricas a través de gráficos de barras y líneas.
++ Aplicar medidas de tendencia central y dispersión. 
++ Visualizar distribución a través de Boxplots.
++ Calcular correlación entre las variables numéricas.
+  + Se crearon gráficos de dispersión. 
+  + Se creo una matriz de correlación en Google Colab con el consolidado. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*. 
+## Segmentación de variables
+Ante el análisis exploratorio, se definieron 7 variables como relevantes estás son:
+
 
 ## Enlaces
 ### [Presentación]()
