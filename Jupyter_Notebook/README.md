@@ -6,7 +6,7 @@
 3. [Regresión logística](#regresión-logística)
 
 # Exploración de datos
-Exploración paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí se deja la evidencia de dichos gráficos. El proceso completo se aloja en el Notebook (exploracion_rr).
+Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí se deja la evidencia de dichos gráficos. El proceso completo se aloja en el Notebook (exploracion_rr).
 ## Base de datos: Información de usuario (user_info)
 ### Edad (Histograma y Boxplot)
 ![01_Histograma_Edad](https://github.com/user-attachments/assets/60025863-a875-41c2-a575-a2e2b4c53626)
