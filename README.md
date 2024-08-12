@@ -119,7 +119,13 @@ El análisis exploratorio se llevo a cabo en Looker Studio, se cargo el consolid
   + Se creo una matriz de correlación en Google Colab con el consolidado. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*. 
 ## Segmentación de variables
 Ante el análisis exploratorio, se definieron 7 variables como relevantes estás son:
-
++ Age: Edad
++ Debt ratio: Ratio de deuda
++ Last month salary: Último salario mensual
++ More 90 days overdue: Más de 90 días de retraso
++ Number dependents: Número de dependientes
++ Total loans: Total de préstamos
++ Using lines not secured: Uso de líneas no aseguradas
 
 ## Enlaces
 ### [Presentación]()
