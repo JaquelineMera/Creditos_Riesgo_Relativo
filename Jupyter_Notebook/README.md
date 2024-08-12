@@ -71,7 +71,7 @@ Se realizaron 2 matrices de confusión, a partir de dos modelos.
   + 7 variables a considerar, valor de dummies 0 y 1, rango de score 0 - 7, malos pagadores >3.
 
 + Matriz 2/Modelo 2: 
-  + 7 variables a considerar, valor de dummies 0 y 1, peso de las dummies, 0, 1 y 2, rango de score 0 - 9, malos pagadores >4.
+  + 7 variables a considerar, valor de dummies 0 y 1, peso de las dummies 1 y 2, rango de score 0 - 9, malos pagadores >4.
   + Dummies con peso de 2, more_90_days_overdue y using_ lines_ not_ secured_ personal_ assets, debido a que su riesgo relativo incrementa considerablemente respecto a las otras 5 variables evaluadas. 
 
 En conclusión, el modelo mejor calibrado fue el segundo. Cuenta con un mejor recall para la clase "Malos Pagadores", además, su precisión aumenta respecto al primer modelo. La diferencia entre modelos, radica en que se dio un peso a las 2 variables, con mayor riesgo relativo. 
