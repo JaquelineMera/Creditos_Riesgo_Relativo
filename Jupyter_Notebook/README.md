@@ -6,7 +6,7 @@
 3. [Regresión logística](#regresión-logística)
 
 # Exploración de datos
-Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí se deja la evidencia de dichos gráficos. El proceso completo se aloja en el Notebook (exploracion_rr).
+Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí se deja la evidencia de dichos gráficos. El proceso completo se aloja en Jupyter_Notebook (exploracion_rr).
 ## Base de datos: Información de usuario (user_info)
 ### Edad (Histograma y Boxplot)
 ![01_Histograma_Edad](https://github.com/user-attachments/assets/60025863-a875-41c2-a575-a2e2b4c53626)
@@ -55,5 +55,34 @@ Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones 
 Se exploró la correlación de las variables del consolidado. El consolidado une las 4 bases de datos limpias, es decir, ya integran los procesos de preparación (limpieza e imputación de datos).
 ![15_Matrizcorrelacion](https://github.com/user-attachments/assets/d8380db6-d877-418d-8711-dc9d40e65eff)
 # Matriz de confusión
+La matriz de confusión proporciona un medio para evaluar el éxito de un problema de clasificación y dónde se cometen errores (dónde se vuelve "confuso"). Es decir, visualiza la distribución de los registros en términos de clases reales y clases pronosticadas.
+
++ Componentes de una Matriz de Confusión:
+  + Verdaderos Positivos (TP): Observaciones correctamente clasificadas como positivas.
+  + Falsos Positivos (FP): Observaciones incorrectamente clasificadas como positivas.
+  + Verdaderos Negativos (TN): Observaciones correctamente clasificadas como negativas.
+  + Falsos Negativos (FN): Observaciones incorrectamente clasificadas como negativas.
+
+![16_Matriz00](https://github.com/user-attachments/assets/5369f5f4-439a-42e8-9c5f-8b60d8f7104e)
+
+## Resultados Matriz de Confusión
+Se realizaron 2 matrices de confusión, a partir de dos modelos. 
++ Matriz 1/Modelo 1: 
+  + 7 variables a considerar, valor de dummies 0 y 1, rango de score 0 - 7, malos pagadores >3.
+
++ Matriz 2/Modelo 2: 
+  + 7 variables a considerar, valor de dummies 0 y 1, peso de las dummies, 0, 1 y 2, rango de score 0 - 9, malos pagadores >4.
+  + Dummies con peso de 2, more_90_days_overdue y using_ lines_ not_ secured_ personal_ assets, debido a que su riesgo relativo incrementa considerablemente respecto a las otras 5 variables evaluadas. 
+
+En conclusión, el modelo mejor calibrado fue el segundo. Cuenta con un mejor recall para la clase "Malos Pagadores", además, su precisión aumenta respecto al primer modelo. La diferencia entre modelos, radica en que se dio un peso a las 2 variables, con mayor riesgo relativo. 
+
+El proceso para realizar una matriz de confusión en Google Colab se encuentra Jupyter_Notebook (matriz_confusión).
+
+![16_Matriz01](https://github.com/user-attachments/assets/88dcade6-1ebc-4ea7-ad45-06aadd509da5)
+![16_Matriz02](https://github.com/user-attachments/assets/591a6b77-5c00-4c71-8bb5-8bc82c17ca0a)
+
+
+
+
 # Regresión logística
 
