@@ -110,13 +110,24 @@ El flujo de trabajo incluyó varias etapas, el procesamiento de los datos, anál
     + Tablas nuevas: generaciones y variables nuevas (variables por segmentos). 
 ## Análisis exploratorio
 El análisis exploratorio se llevo a cabo en Looker Studio, se cargo el consolidado desde BigQuery. 
-+ Agrupar datos según variables categóricas a través de tablas. 
-+ Visualizar las variables categóricas a través de gráficos de barras y líneas.
-+ Aplicar medidas de tendencia central y dispersión. 
-+ Visualizar distribución a través de Boxplots.
-+ Calcular correlación entre las variables numéricas.
++ **Agrupar datos según variables categóricas.**
+  + Se añadieron campos, un grupo por tipo de pagador (buen y mal pagador) y un campo calculado para agrupar la edad por cuartiles.
+  + Se crearon tablas y scorecard para explorar los datos. 
++ **Visualizar las variables categóricas.**
+  + Se crearon gráficos de barras y gráficos bivariados.
++ **Aplicar medidas de tendencia central y dispersión.**
+  + Se crearon tablas con las medidas de tendencia central y dispersión por buen y mal pagador.
+  + Se calculo, la media, la mediana, mínimo, máximo, y desviación estándar.
+  + La exploración se hizo por: perfil de usuario, préstamos y retrasos, y por último métricas de endeudamiento (debt ratio y uso de línea de crédito). 
++ **Visualizar distribución a través de Boxplots.**
+  + Se crearon campos calculados para el percentil 25 y 75, con el fin de crear boxplots.
+  + Se observo la distribución de las variables por buen y mal pagador.
+  + La exploración se hizo por: perfil de usuario, préstamos y retrasos, y por último métricas de endeudamiento (debt ratio y uso de línea de crédito).
++ **Calcular correlación entre las variables numéricas.**
   + Se crearon gráficos de dispersión. 
-  + Se creo una matriz de correlación en Google Colab con el consolidado. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*. 
+  + Se creo una matriz de correlación en Google Colab con el consolidado. Se puede observar en el [Jupyter Notebook](/Jupyter_Notebook/README.md), en el apartado *Matriz de Correlación*.
+
++ Nota: Para observar el Análisis exploratorio, revisar el Dashboard en los apartados **EDA**. 
 ## Segmentación de variables
 Ante el análisis exploratorio, se definieron 7 variables como relevantes estás son:
 + Age: Edad
