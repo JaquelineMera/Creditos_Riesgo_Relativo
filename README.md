@@ -14,13 +14,7 @@ Este proyecto aborda la creación de un score crediticio con el fin de gestionar
   - [Segmentación de variables](#segmentación-de-variables)
   - [Cálculo de riesgo relativo](#cálculo-de-riesgo-relativo)
   - [Validación de hipótesis](#validación-de-hipótesis)
-  - [Creación de variables dummies](#creación-de-variables-dummies)
-  - [Cálculo de score crediticio](#cálculo-de-score-crediticio)
-  - [Clasificación de cliente](#clasificación-de-cliente)
-  - [Validación de modelo](#validación-de-modelo)
-  - [Enlaces de procesos](#enlaces-de-procesos)
-    - [SQL](/SQL/)  
-    - [Jupyter Notebook](/Jupyter_Notebook/README.md)
+  - [Creación del modelo](#creación-del-modelo)
 - [Resultados](#resultados)
 - [Conclusiones](#conclusiones)
 - [Recomendaciones](#recomendaciones)
@@ -36,7 +30,6 @@ Mejorar la eficiencia y la precisión en la evaluación del riesgo crediticio, p
 
 ## Equipo
 - [Jaqueline Mera](https://github.com/JaquelineMera)
-
 ## Herramientas
 + BigQuery
 + Google Colab
@@ -129,14 +122,37 @@ El análisis exploratorio se llevo a cabo en Looker Studio, se cargo el consolid
 
 + Nota: Para observar el Análisis exploratorio, revisar el Dashboard en los apartados **EDA**. 
 ## Segmentación de variables
-Ante el análisis exploratorio, se definieron 7 variables como relevantes estás son:
-+ Age: Edad
-+ Debt ratio: Ratio de deuda
-+ Last month salary: Último salario mensual
-+ More 90 days overdue: Más de 90 días de retraso
-+ Number dependents: Número de dependientes
-+ Total loans: Total de préstamos
-+ Using lines not secured: Uso de líneas no aseguradas
+Se calcularon los cuartiles para cada una de las variables en BigQuery a través de NTILE, OVER y ORDER BY, con el fin de calcular el riesgo relativo por segmento. Se analizaron los rangos por variable (en Looker Studio) y se decidió segmentar las variables more 90 days overdue, debt ratio, y using lines not secured de acuerdo con los segmentos creados al construir nuevas variables. Esta decisión se tomó al observar cuartiles con rangos similares debido a un alto número de valores repetidos (como "0") o valores extremadamente altos, que generaban un rango de cuartil demasiado amplio.
+
+Se definieron 7 variables como relevantes en el análisis exploratorio. 
++ Age: Edad, se segmento por cuartiles. 
++ Debt ratio: Ratio de deuda, se segmento con los rango de la nueva variable. 
++ Last month salary: Último salario mensual, se segmento por cuartiles. 
++ More 90 days overdue: Más de 90 días de retraso, se segmento con los rango de la nueva variable. 
++ Number dependents: Número de dependientes, se segmento por cuartiles. 
++ Total loans: Total de préstamos, se segmento por cuartiles. 
++ Using lines not secured: Uso de líneas no aseguradas, se segmento con los rango de la nueva variable. 
+
+## Cálculo de riesgo relativo
+Utilizando los comandos WITH, NTILE, COUNT, MIN, MAX, CASE, WHEN, se calculó el riesgo relativo en BigQuery para las variables seleccionadas, generando una tabla que incluye, la variable, los cuartiles y/o segmento, el total de usuarios, el total de malos y buenos pagadores, el riesgo relativo y el valor mínimo y máximo de los cuartiles y/o segmento. El riesgo relativo es decisivo para crear nuestro modelo de clasificación.
++ El riesgo relativo se define como:
+  + Riesgo Relativo (RR) = [Tasa de Incidencia en el Grupo Expuesto] / [Tasa de Incidencia en el Grupo No Expuesto]
+
+## Validación de hipótesis
+Se validaron 3 hipótesis planteadas, y 4 supuestos que se proponen para el proyecto. 
+Se validaron a través del riesgo relativo por segmento. Las hipótesis y segmentos son:
++ Hipótesis 1: Los más jóvenes tienen un mayor riesgo de impago. Se valida. 
++ Hipótesis 2: Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores. Se refuta. 
++ Hipótesis 3: Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores. Se valida. 
++ Supuesto 1: Las personas con menor salario tienen mayor riesgo a ser malos pagadores. Se valida.
++ Supuesto 2: Las personas con mayor nivel de deuda (debt ratio) tienen mayor riesgo a ser malos pagadores. Se refuta. 
++ Supuesto 3: Las personas con al menos un dependiente económico tienen mayor riesgo de ser malos pagadores. Se valida. 
++ Supuesto 4: Las personas con una línea de crédito sobregirada tienen mayor riesgo a ser malos pagadores. Se valida. 
+
+## Creación del modelo
++ Creación de variables dummies
++ Cálculo de score crediticio
++ Clasificación de cliente
 
 ## Enlaces
 ### [Presentación]()
