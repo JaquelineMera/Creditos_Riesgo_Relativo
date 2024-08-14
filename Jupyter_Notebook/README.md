@@ -55,7 +55,7 @@ Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones 
 
 # Matriz de correlación
 Se exploró la correlación de las variables del consolidado. El consolidado une las 4 bases de datos limpias, es decir, ya integran los procesos de preparación (limpieza e imputación de datos).
-![15_Matrizcorrelacion](https://github.com/user-attachments/assets/7d51a41a-506d-4d48-b92b-51614b284f44)
+![15_Matrizcorrelacion](https://github.com/user-attachments/assets/b9485a05-d4ba-4be5-ba70-3202ddee23f7)
 
 # Matriz de confusión
 La matriz de confusión proporciona un medio para evaluar el éxito de un problema de clasificación, dónde se cometen errores (y se vuelve "confuso"). Es decir, visualiza la distribución de los registros en términos de clases reales y clases pronosticadas.
