@@ -195,6 +195,6 @@ Interpretación:
 + **Calidad de los datos**:  Mejorar la calidad de los datos, para evitar futuros errores de clasificación. Se debe mejorar la relación entre los departamentos para la validación de los mismos. 
 + **Uso de resultados del perfil de riesgo**: Creación de estrategias de mailing para alertas y avisos de pago a usuarios. Así como, crear alertas internas para limitar líneas de crédito y préstamos a usuarios propensos a caer en riesgo. 
 ## Enlaces
-### [Presentación]()
-### [Dashboard]()
-### [Video Loom]()
+### [Presentación](https://drive.google.com/file/d/1tw7kuj2qOrHkSzV3tpXR4WsSeQGTEJhA/view?usp=sharing)
+### [Dashboard](https://lookerstudio.google.com/reporting/3afa9210-90b6-4561-90c0-b5fe9d97398b)
+### [Video Loom](https://www.loom.com/share/98c3bb3d11b5482a8d2b82a24cfb3bfc?sid=72a34c50-3be6-45a5-ba55-b2844cf29a31)
