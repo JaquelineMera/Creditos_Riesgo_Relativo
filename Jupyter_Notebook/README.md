@@ -80,18 +80,10 @@ Se realizaron 2 matrices de confusión, a partir de dos modelos.
 En conclusión, el modelo mejor calibrado fue el segundo. Cuenta con un mejor recall para la clase "Malos Pagadores", además, su precisión aumenta respecto al primer modelo. La diferencia entre modelos, radica en que se dio un peso a las 2 variables, con mayor riesgo relativo. 
 
 El proceso para realizar una matriz de confusión en Google Colab se encuentra Jupyter_Notebook (matriz_confusión).
-![matriz_confusion_01](https://github.com/user-attachments/assets/ac73cb78-bddb-4bda-a76e-1a3ed764b5e1)
-![reporte_mc_01](https://github.com/user-attachments/assets/037bd87b-54b1-4aea-8948-c62a9d627f34)
-![matriz_confusion_02](https://github.com/user-attachments/assets/c64228dd-7d28-413c-9f58-8593e5822819)
-![reporte_mc_02](https://github.com/user-attachments/assets/12e2cd66-2ba7-409a-8caa-1f6439299c97)
-
-
-
-
-
-
-
-
+![matriz_confusion_01](https://github.com/user-attachments/assets/0a067020-d7d3-4c2d-ad54-272b95e68ba8)
+![reporte_mc_01](https://github.com/user-attachments/assets/f13ce800-6784-4217-9cf8-18e558de1639)
+![matriz_confusion_02](https://github.com/user-attachments/assets/02cb8b0f-732b-4469-916f-d2ce3741c886)
+![reporte_mc_02](https://github.com/user-attachments/assets/6b0729f0-d597-4fa2-a8b0-28aa627d47b8)
 
 # Regresión logística
 
