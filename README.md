@@ -18,7 +18,6 @@ Este proyecto aborda la creación de un score crediticio con el fin de gestionar
 - [Resultados](#resultados)
 - [Conclusiones](#conclusiones)
 - [Recomendaciones](#recomendaciones)
-- [Pasos a seguir](#pasos-a-seguir)
 - [Enlaces](#enlaces)
 
 
@@ -139,21 +138,62 @@ Utilizando los comandos WITH, NTILE, COUNT, MIN, MAX, CASE, WHEN, se calculó el
   + Riesgo Relativo (RR) = [Tasa de Incidencia en el Grupo Expuesto] / [Tasa de Incidencia en el Grupo No Expuesto]
 
 ## Validación de hipótesis
-Se validaron 3 hipótesis planteadas, y 4 supuestos que se proponen para el proyecto. 
-Se validaron a través del riesgo relativo por segmento. Las hipótesis y segmentos son:
+Se validaron 3 hipótesis planteadas por Super Caja.
+Se validaron a través del riesgo relativo por segmento. Las hipótesis son:
 + Hipótesis 1: Los más jóvenes tienen un mayor riesgo de impago. Se valida. 
 + Hipótesis 2: Las personas con más cantidad de préstamos activos tienen mayor riesgo de ser malos pagadores. Se refuta. 
 + Hipótesis 3: Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores. Se valida. 
+## Creación del modelo
++ Creación de variables dummies
+  + Se crearon 7 variables dummies de acuerdo a las variables clave, se le asigno un valor 0 y 1. Después se les asigno un peso de 1 a 5 de 7 variables, y un peso de 2 a las variables: más de 90 días de retraso y using lines not secured por su alto riesgo relativo. 
++ Cálculo de score crediticio y clasificación
+  + Se sumaron las variables dummies, el rango del score va de 0 a 9, considerando como usuarios con riesgo o malos pagadores aquellos que tienen en su suma >4. 
+## Validación del modelo
+  + Se hizo una matriz de confusión para validar el modelo, este proceso se llevo a cabo tanto en BigQuery como en Google Colab.
+  + Se aplico la técnica de regresión lógistica, para predecir la probabilidad de que un cliente sea "buen pagador" o "mal pagador" en función de las variables clave.
+# Resultados
++ **Hallazgos: EDA**
+El análisis exploratorio nos muestra que:
+![Riesgo_credicio_Jaqueline_Mera_page-0004_R](https://github.com/user-attachments/assets/b709a683-a1d2-4ca6-83cb-ae3ebe6a30d1)
+
+## **Hallazgos: Validación de hipótesis**
+Además de las 3 hipótesis planteadas por super caja, se proponen 4 supuestos a validar. Estos son:
 + Supuesto 1: Las personas con menor salario tienen mayor riesgo a ser malos pagadores. Se valida.
 + Supuesto 2: Las personas con mayor nivel de deuda (debt ratio) tienen mayor riesgo a ser malos pagadores. Se refuta. 
 + Supuesto 3: Las personas con al menos un dependiente económico tienen mayor riesgo de ser malos pagadores. Se valida. 
 + Supuesto 4: Las personas con una línea de crédito sobregirada tienen mayor riesgo a ser malos pagadores. Se valida. 
 
-## Creación del modelo
-+ Creación de variables dummies
-+ Cálculo de score crediticio
-+ Clasificación de cliente
+A continuación, se muestran las hipótesis y supuestos, con el riesgo relativo de su segmento. 
+![Riesgo_credicio_Jaqueline_Mera_page-0006_R](https://github.com/user-attachments/assets/e4758bf2-33f7-4461-acd4-67eb717f4ee0)
+![Riesgo_credicio_Jaqueline_Mera_page-0007_R](https://github.com/user-attachments/assets/c727555b-e175-40af-9854-caa510f6ba4b)
 
+## **Hallazgos: Matriz de confusión**
++ **Métricas Globales del Modelo**:
+  + **Accuracy (Exactitud 0.94)**: El modelo clasifica correctamente el 94% de los casos. Esto significa que, en general, es bastante preciso en distinguir entre buenos y malos pagadores.
+  + **Precisión (0.99)**: De todos los casos que el modelo predice como "buenos pagadores", el 99% efectivamente lo son. Esto indica que el modelo es muy conservador al identificar buenos pagadores, con muy pocos falsos positivos.
+  + **Recall (Sensibilidad 0.94)**:De todos los casos que son realmente "buenos pagadores", el modelo identifica correctamente el 94%. Esto refleja que el modelo es eficaz en capturar la mayoría de los buenos pagadores, aunque algunos se escapan.
+    + **Recall Buenos pagadores (0.95)**: De todos los buenos pagadores, el modelo logra identificar correctamente al 95%. 
+    + **Recall Malos pagadores (0.78)**: El modelo identifica correctamente el 78% de los "malos pagadores". Sin embargo, hay un 22% de malos pagadores aun no son detectados. Por tanto, el modelo es perfectible.
+  + **F1-Score (0.97)**: Indica que el modelo tiene un buen equilibrio, siendo robusto en la clasificación.
+Interpretación:
+
+![Riesgo_credicio_Jaqueline_Mera_page-0009_R](https://github.com/user-attachments/assets/a44901d6-f5c3-4c15-bceb-3c36fef72416)
+
+## **Hallazgos: Riesgo relativo**
+ La regresión logística permitio validar las hipótesis desde un enfoque estadístico.
+ A continuación, se observan dos gráficos que validan la hipótesis y el supuesto: 
+ + Hipótesis 3: Las personas que han retrasado sus pagos por más de 90 días tienen mayor riesgo de ser malos pagadores. Se valida. 
+ + Supuesto 3: Las personas con al menos un dependiente económico tienen mayor riesgo de ser malos pagadores. Se valida. 
+![Riesgo_credicio_Jaqueline_Mera_page-0010_R](https://github.com/user-attachments/assets/f4fb5327-2d94-44ae-b200-288dc1a7c9db)
+
+# Conclusiones
++ El modelo para la automatización del riesgo crediticio se ha implementado con éxito, incrementando la identificación de malos pagadores del 1.7% al 6.5%, lo que podría prevenir un 4.8% de incumplimientos en las cuotas de préstamo.
+
+# Recomendaciones
++ **Monitoreo y ajustes**: Probar el modelo con nuevos clientes para monitorear su desempeño y establecer ajustes periódicos en función de los patrones emergentes en los usuarios. Esto garantizará que el modelo se mantenga preciso y relevante en la evaluación del riesgo crediticio a lo largo del tiempo.
++ **Incorporar métricas externas**: Considerar la inclusión de métricas financieras externas, como el historial crediticio en otras instituciones, dado el alto riesgo de incumplimiento cuando los usuarios ya utilizan el 100% de sus líneas de crédito.
++ **Calidad de los datos**:  Mejorar la calidad de los datos, para evitar futuros errores de clasificación. Se debe mejorar la relación entre los departamentos para la validación de los mismos. 
++ **Uso de resultados del perfil de riesgo**: Creación de estrategias de mailing para alertas y avisos de pago a usuarios. Así como, crear alertas internas para limitar líneas de crédito y préstamos a usuarios propensos a caer en riesgo. 
 ## Enlaces
 ### [Presentación]()
 ### [Dashboard]()
