@@ -4,7 +4,6 @@
 1. [Exploración de datos](#exploración-de-datos)
 2. [Matriz de correlación](#matriz-de-correlación)
 3. [Matriz de confusión](#matriz-de-confusión)
-4. [Regresión logística](#regresión-logística)
 
 # Exploración de datos
 Exploración de datos crudos paralela a BigQuery con el fin de tomar decisiones para procesar y preparar base de datos. Se utilizó la librería Plotly de Python para crear gráficos dinámicos, aquí se deja la evidencia de dichos gráficos. El proceso completo se aloja en Jupyter_Notebook (exploracion_rr).
@@ -84,6 +83,4 @@ El proceso para realizar una matriz de confusión en Google Colab se encuentra J
 ![reporte_mc_01](https://github.com/user-attachments/assets/f13ce800-6784-4217-9cf8-18e558de1639)
 ![matriz_confusion_02](https://github.com/user-attachments/assets/02cb8b0f-732b-4469-916f-d2ce3741c886)
 ![reporte_mc_02](https://github.com/user-attachments/assets/6b0729f0-d597-4fa2-a8b0-28aa627d47b8)
-
-# Regresión logística
 
