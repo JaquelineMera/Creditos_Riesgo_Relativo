@@ -196,5 +196,5 @@ Interpretación:
 + **Uso de resultados del perfil de riesgo**: Creación de estrategias de mailing para alertas y avisos de pago a usuarios. Así como, crear alertas internas para limitar líneas de crédito y préstamos a usuarios propensos a caer en riesgo. 
 ## Enlaces
 ### [Presentación](https://drive.google.com/file/d/1tw7kuj2qOrHkSzV3tpXR4WsSeQGTEJhA/view?usp=sharing)
-### [Dashboard](https://lookerstudio.google.com/reporting/3afa9210-90b6-4561-90c0-b5fe9d97398b)
+### [Dashboard]([https://lookerstudio.google.com/reporting/3afa9210-90b6-4561-90c0-b5fe9d97398b](https://lookerstudio.google.com/s/hDVyQCUhM_U))
 ### [Video Loom](https://www.loom.com/share/98c3bb3d11b5482a8d2b82a24cfb3bfc?sid=72a34c50-3be6-45a5-ba55-b2844cf29a31)
